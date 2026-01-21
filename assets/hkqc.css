@@ -298,12 +298,78 @@ html.lang-en p.en { display: block; }
 }
 
 /* 平板過渡 */
-@media (min-width: 480px) and (max-width: 767px) {
+@media (min-width: 641px) and (max-width: 767px) {
   .hero-content {
     max-width: 85%;
   }
   
   .hero-image {
     max-width: 95%;
+  }
+}
+/* 手機 Navbar 極致收窄 */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.5rem 0.75rem; /* 左右超窄 */
+    min-height: 50px;
+  }
+  
+  .navbar-logo-img {
+    height: 24px; /* 超小 logo */
+    max-height: 26px;
+  }
+  
+  .navbar-menu {
+    gap: 0.25rem; /* 極小間距 */
+    font-size: 0.8rem; /* 細字 */
+  }
+  
+  .nav-link {
+    padding: 0.2rem 0.4rem; /* 按鈕超窄 */
+    font-weight: 400;
+    border-radius: 12px;
+    min-width: 32px; /* 最少寬度 */
+    text-align: center;
+  }
+  
+  .lang-switcher {
+    gap: 0.125rem;
+  }
+  
+  .lang-separator {
+    font-size: 0.9rem;
+  }
+  
+  .lang-toggle {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.3rem;
+  }
+}
+
+/* 中等手機（481-640px）過渡 */
+@media (min-width: 481px) and (max-width: 640px) {
+  .navbar-menu {
+    gap: 0.4rem;
+    font-size: 0.85rem;
+  }
+  
+  .nav-link {
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+/* 藏 title logo（選項） */
+@media (max-width: 400px) {
+  .navbar-logo {
+    display: none; /* 完全收起 logo */
+  }
+  
+  .navbar {
+    justify-content: center; /* 按鈕置中 */
+  }
+  
+  .navbar-menu {
+    justify-content: center;
+    flex-wrap: wrap; /* 必要時換行 */
   }
 }
