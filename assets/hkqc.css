@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Noto+Sans+HK:wght@100..900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+  font-family: "Noto Sans HK", "Lexend", sans-serif;  /* 中優先，Lexend 後備 */
+  line-height: 1.6; color: #eee; 
+  background: linear-gradient(135deg, #ca2036 0%, #401b26 100%);
+  min-height: 100vh;
+  padding-top: 80px;  /* navbar 高 + 少少間距 */
+}
+
+/* 英文標題用 Atkinson */
+.section-title.en,
+h1.en, h2.en, h3.en {
+  font-family: "Atkinson Hyperlegible Next", "Lexend", sans-serif;
+  font-weight: 700;  /* 或 800 */
+  font-variation-settings: "wght" 700;  /* variable font */
+}
+
+/* 中文標題 */
+.section-title.zh,
+h1.zh, h2.zh, h3.zh {
+  font-family: "Noto Sans HK", sans-serif;
+  font-weight: 700;
+}
+
+/* Body text */
+p, li {
+  font-family: "Noto Sans HK", "Lexend", sans-serif;
+  font-weight: 400;
+}
+
+/* 英文 body 用 Lexend */
+p.en, li.en {
+  font-family: "Lexend", "Atkinson Hyperlegible Next", sans-serif;
+}
+.navbar {
+  position: fixed;     /* ← 關鍵：固定頂部 */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;       /* 確保最上層 */
+  padding: 0.75rem 1.5rem;
+  background: rgba(64, 27, 38, 0.95);  /* 深紅半透 */
+  backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);  /* 陰影分離 */
+  min-height: 60px;    /* 最小高度 */
+  max-height: 70px;
+}
+
+.navbar-logo-img {
+  height: 32px;        /* 固定小 */
+  max-height: 36px;
+}
+
+/* Navbar 導航（之後用） */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+nav a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+nav a:hover,
+nav a.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* 平滑滾動 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Language Toggle */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lang-separator {
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+.lang-toggle {
+  color: rgba(255, 255, 255, 0.8) !important;
+  text-decoration: none !important;
+  padding: 0.25rem 0.5rem !important;
+  border-radius: 4px !important;
+  font-weight: 500;
+  font-size: 0.9rem;
+  background: none !important;
+  border: none !important;
+  cursor: pointer;
+}
+
+.lang-toggle.active,
+.lang-toggle:hover {
+  color: white !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Alphanumeric wrap */
+*:not(.alnum)::after {
+  content: '';
+}
+
+/* 更好：用相鄰選擇器 */
+.zh + .alnum,
+p.zh .alnum:first-of-type {
+  margin-left: 0.2em !important;  /* 只中文後英文加 0.2em */
+}
+
+.alnum + .zh,
+.alnum ~ .zh {
+  margin-left: 0.2em; !important;  /* 英文後中文微調 */
+}
+
+/* 英文內部唔加 double */
+.alnum + .alnum {
+  margin-left: 0;      /* 英→英無間距 */
+  margin-right: 0;
+}
+
+/* Main Content */
+
+#hero { 
+  padding: 4rem 1.5rem; 
+  display: flex; flex-direction: column; gap: 2rem; align-items: center; 
+}
+
+.hero-content { max-width: 80%; text-align: center; }
+.hero-tagline { 
+  text-transform: uppercase; letter-spacing: .08em; font-size: .85rem; opacity: 0.8; 
+}
+.hero-title-img { 
+  max-width: 80%; height: auto; display: block; margin: 0 auto; 
+}
+.hero-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1rem 0; }
+.hero-meta-item .label { display: block; font-size: .8rem; opacity: .8; }
+.hero-subtitle { font-size: 1.125rem; margin-bottom: 1.5rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1.5rem 0; }
+.btn { 
+  padding: .75rem 1.5rem; border-radius: 999px; text-decoration: none; 
+  font-weight: 500; display: inline-block; 
+}
+.btn-primary {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);  /* 金橙漸變 */
+  color: #1a0f0f;     /* 深色文字 */
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.15);  /* 半透明白 */
+  color: #FFE4B5;     /* 米黃文字 */
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: #FFD700;
+  color: white;
+}
+.hero-note { font-size: .9rem; opacity: 0.8; }
+.hero-image { max-width: 80%; }
+.hero-kv { 
+  width: 100%; height: auto; display: block; object-fit: contain; overflow: visible; 
+}
+
+@media (min-width: 768px) {
+  #hero { flex-direction: row; justify-content: center; gap: 4rem; }
+  .hero-content, .hero-image { max-width: 40%; }
+}
+/* 新增 sections styles */
+.section {
+  padding: 4rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);  /* 半透明白，跟紅底對比 */
+  backdrop-filter: blur(10px);           /* 毛玻璃效果 */
+  margin: 2rem 0;
+  border-radius: 20px;
+}
+
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bilingual-text {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.bilingual-text p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.zh {
+  font-family: "Noto Sans HK", sans-serif;
+}
+
+.en {
+  font-family: "Atkinson Hyperlegible Next", sans-serif;
+}
+
+.coming-soon {
+  text-align: center;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}
+
