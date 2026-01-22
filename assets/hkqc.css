@@ -28,7 +28,7 @@ h1.zh, h2.zh, h3.zh {
 }
 
 p, li {
-  font-family: "Noto Sans HK", "Atkinson Hyperlegible Next", sans-serif;
+  font-family: "Atkinson Hyperlegible Next", "Noto Sans HK", sans-serif;
   font-weight: 400;
 }
 
