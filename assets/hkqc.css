@@ -5,10 +5,10 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: "Noto Sans HK", "Atkinson Hyperlegible Next", sans-serif;
+  font-family: "Atkinson Hyperlegible Next", "Noto Sans HK", sans-serif;
   line-height: 1.6;
   color: #eee;
-  background: linear-gradient(135deg, #ca2036 0%, #401b26 100%);
+  background: linear-gradient(100deg, #ca2036 0%, #401b26 100%);
   min-height: 100vh;
   padding-top: 80px;
 }
@@ -450,7 +450,9 @@ html.lang-en .group-title.en, html.lang-en .position-name.en, html.lang-en .posi
 
 /* 中英混排 extra spacing */
 .alnum {
-  margin: 0 0.08em;
+  margin: 0 0.2em;
+  font-family: "Atkinson Hyperlegible Next", sans-serif;
+  font-size: 110%;
 }
 
 /* Desktop 左右並排 */
