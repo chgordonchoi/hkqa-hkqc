@@ -433,19 +433,105 @@ html.lang-en .group-title.en, html.lang-en .position-name.en, html.lang-en .posi
   .position-note { font-size: 0.7rem; }
 }
 
-/* ========================================
-   HKQC CLEANUP FIX - 2026.1.22 17:21
-   ======================================= */
-
-/* 1. 雙語 - 只限 Quadball（移除 h3/p 廣泛影響） */
-
-
 .coming-soon {
   text-align: center;
   font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.85);
   font-style: italic;
   white-space: pre-line; /* 確保 <br> 生效 */
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 3rem;
+  padding: 2rem 1.5rem;
+  background: rgba(64, 27, 38, 0.55);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.footer-credits p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  transition: all 0.2s ease;
+}
+
+.footer-link:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.footer-social { display: flex; justify-content: center; }
+
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  color: #401b26;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+}
+
+.social-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: 1px solid rgba(0,0,0,0.08);
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: #fff;                 /* white mark on brand color */
+}
+
+.social-icon:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+/* Brand backgrounds */
+.social-icon.facebook { background: #1877F2; }  /* Facebook blue */
+.social-icon.youtube { background: #FF0000; }   /* YouTube red */
+
+/* Instagram gradient */
+.social-icon.instagram {
+  background: radial-gradient(circle at 30% 30%, #feda75 0%, #fa7e1e 25%, #d62976 55%, #962fbf 75%, #4f5bd5 100%);
+}
+
+.social-handle {
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
 }
 
 /* 中英混排 extra spacing */
