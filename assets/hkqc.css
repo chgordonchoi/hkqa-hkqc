@@ -293,6 +293,122 @@ html.lang-en .nav-link.en { display: block; }
 html.lang-en .quadball-intro p.zh { display: none; }
 html.lang-en .quadball-intro p.en { display: block; }
 
+
+/* Highlights layout */
+.highlights-layout {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .highlights-layout {
+    grid-template-columns: 1fr;
+    align-items: center;
+  }
+}
+
+/* Carousel */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+  background: rgba(0,0,0,0.3);
+  max-height: 70vh;      /* 70% of viewport height */
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    max-height: none;
+  }
+  .carousel-slide img {
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.carousel-slide.is-active {
+  opacity: 1;
+}
+
+.carousel-slide img {
+  display: block;
+  max-width: 100%;
+  max-height: 70vh;           /* match the container cap */
+  width: auto;
+  height: auto;
+  object-fit: contain;        /* show full image, no cropping */
+  margin: 0 auto;             /* horizontally center */
+}
+
+/* Optional: mobile can ignore the 70vh cap if you like */
+@media (max-width: 768px) {
+  .carousel {
+    max-height: none;
+  }
+  .carousel-slide img {
+    max-height: none;
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.carousel-arrow.prev { left: 10px; }
+.carousel-arrow.next { right: 10px; }
+
+/* Dots */
+.carousel-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+
+.carousel-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+}
+
+.carousel-dots .dot.is-active {
+  background: #FFD700;
+}
+/* End of highlight */
+
 /*Quadball Cards*/
 /* ========================================
    QUADBALL CARDS - 完整成份（2026.1.22）

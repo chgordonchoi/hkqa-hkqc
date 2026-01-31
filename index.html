@@ -137,11 +137,13 @@
 
 				<p class="zh">
 					報名費用：港幣<span class="alnum"><strong>350</strong></span>元正<strong>（名額有限，正價為港幣400元）</strong><br>
-					<i>首次參賽或轉隊球員須另付球衣費用</i>
+					<i>首次參賽或轉隊球員須另付球衣費用</i><br>
+					<span class="alnum">2026</span>年<span class="alnum">2</span>月<span class="alnum">21</span>日（六）截止報名。
 				</p>
 				<p class="en">
 					HK$<span class="alnum"><strong>350</strong></span> <strong>(Limited quota, $400 thereafter)</strong><br>
-					<i>First time and transfer players are required to pay additional costs for jersey kit</i>
+					<i>First time and transfer players are required to pay additional costs for jersey kit</i><br>
+					Registration closes 21 Feb 2026 (Sat).
 				</p>
 				
 			</div>
@@ -169,6 +171,98 @@
 		</div>
 	  </section>
 
+<!-- HKQC 2025 Highlights -->
+		<section id="highlights" class="section">
+		  <div class="container">
+			<h2 class="section-title zh">上屆精彩重溫</h2>
+			<h2 class="section-title en">Last Year’s Highlights</h2>
+
+			<div class="bilingual-text">
+			  <p class="zh">
+				重溫 2025 年香港魁地奇盃精彩時刻，感受比賽氣氛，為今年賽事熱身。
+			  </p>
+			  <p class="en">
+				Relive the best moments from the 2025 Hong Kong Quadball Cup
+				to get a taste of the atmosphere for this year’s edition.
+			  </p>
+			</div>
+
+			<div class="highlights-layout">
+			  <!-- Carousel -->
+			  <div class="highlights-media">
+				<div class="carousel" aria-label="HKQC 2025 photo highlights">
+				  <button class="carousel-arrow prev" type="button" aria-label="Previous photo">&#10094;</button>
+
+				  <div class="carousel-track">
+					<!-- Slide 1 -->
+					<div class="carousel-slide is-active">
+					  <img src="assets/img/2025HKQC-01-H-Law.JPG"
+						   alt="HKQC 2025 highlight 1">
+					</div>
+					<!-- Slide 2 -->
+					<div class="carousel-slide">
+					  <img src="assets/img/2025HKQC-02-C-Lam.JPG"
+						   alt="HKQC 2025 highlight 2">
+					</div>
+					<!-- Slide 3 -->
+					<div class="carousel-slide">
+					  <img src="assets/img/2025HKQC-03-JC-Cheung.JPG"
+						   alt="HKQC 2025 highlight 3">
+					</div>
+					<!-- Slide 4 -->
+					<div class="carousel-slide">
+					  <img src="assets/img/2025HKQC-04-C-Lam.JPG"
+						   alt="HKQC 2025 highlight 4">
+					</div>
+					<!-- Slide 5 -->
+					<div class="carousel-slide">
+					  <img src="assets/img/2025HKQC-05-H-Law.JPG"
+						   alt="HKQC 2025 highlight 5">
+					</div>
+					<!-- Slide 6 -->
+					<div class="carousel-slide">
+					  <img src="assets/img/2025HKQC-06-JC-Cheung.JPG"
+						   alt="HKQC 2025 highlight 6">
+					</div>
+					<!-- Add up to ~10 slides -->
+					<!--
+					<div class="carousel-slide">
+					  <img src="assets/img/highlights-2025-03.jpg"
+						   alt="HKQC 2025 highlight 3">
+					</div>
+					-->
+				  </div>
+
+				  <button class="carousel-arrow next" type="button" aria-label="Next photo">&#10095;</button>
+
+				  <div class="carousel-dots">
+					<button class="dot is-active" type="button" aria-label="Go to slide 1"></button>
+					<button class="dot" type="button" aria-label="Go to slide 2"></button>
+					<button class="dot" type="button" aria-label="Go to slide 3"></button>
+					<button class="dot" type="button" aria-label="Go to slide 4"></button>
+					<button class="dot" type="button" aria-label="Go to slide 5"></button>
+					<button class="dot" type="button" aria-label="Go to slide 6"></button>
+					<!-- Add one dot per slide -->
+				  </div>
+				</div>
+			  </div>
+
+			  <!-- Live stream replay -->
+			  <div class="highlights-actions">
+				<a
+				  href="https://www.youtube.com/watch?v=ID8aLzyCmgk"
+				  class="btn btn-primary"
+				  target="_blank"
+				  rel="noopener"
+				>
+				  <span class="zh"><span class="alnum">2025</span>年直播重溫</span>
+				  <span class="en">Watch 2025 Live Stream Replay</span>
+				</a>
+			  </div>
+			</div>
+			
+		  </div>
+		</section>
 <!-- Teams -->
 	  <section id="teams" class="section">
 		<div class="container">
@@ -461,5 +555,38 @@
       });
     });
   </script>
+	<script>
+	  // Simple carousel for highlights
+	  document.addEventListener('DOMContentLoaded', function () {
+		const carousel = document.querySelector('.carousel');
+		if (!carousel) return;
+
+		const track = carousel.querySelector('.carousel-track');
+		const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+		const prevBtn = carousel.querySelector('.carousel-arrow.prev');
+		const nextBtn = carousel.querySelector('.carousel-arrow.next');
+		const dots = Array.from(carousel.querySelectorAll('.dot'));
+		let index = 0;
+
+		function updateCarousel(newIndex) {
+		  index = (newIndex + slides.length) % slides.length;
+
+		  slides.forEach((slide, i) => {
+			slide.classList.toggle('is-active', i === index);
+		  });
+		  dots.forEach((dot, i) => {
+			dot.classList.toggle('is-active', i === index);
+		  });
+		  track.style.transform = `translateX(-${index * 100}%)`;
+		}
+
+		prevBtn.addEventListener('click', () => updateCarousel(index - 1));
+		nextBtn.addEventListener('click', () => updateCarousel(index + 1));
+		dots.forEach((dot, i) =>
+		  dot.addEventListener('click', () => updateCarousel(i))
+		);
+	  });
+	</script>
+
 </body>
 </html>
