@@ -134,6 +134,91 @@ html.lang-en .nav-link.en { display: block; }
   background: rgba(255, 255, 255, 0.15);
 }
 
+/* Modal Box */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-box {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: 500px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+}
+
+.modal-header {
+  padding: 1.5rem 1.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.modal-header h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-body {
+  padding: 0 1.5rem 1rem;
+}
+
+.modal-body p {
+  margin: 1rem 0;
+  line-height: 1.6;
+  color: #333;
+}
+
+.modal-footer {
+  padding: 0 1.5rem 1.5rem;
+  text-align: right;
+}
+
+/* Dismissed state */
+.modal-overlay.dismissed {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .modal-box {
+    width: 95vw;
+    margin: 1rem;
+  }
+}
+
 /* Hero */
 /* Hero - 手機垂直排版 */
 #hero {
@@ -245,6 +330,30 @@ html.lang-en .nav-link.en { display: block; }
   height: auto;
   display: block;
   object-fit: contain;
+}
+
+.notice-banner {
+  margin-top: 0;                 /* sit close under hero */
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.notice-box {
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+.notice-box p {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.notice-box p + p {
+  margin-top: 0.5rem;
 }
 
 /* Sections */
@@ -639,7 +748,7 @@ html.lang-en .group-title.en, html.lang-en .position-name.en, html.lang-en .posi
 .site-footer .social-pill { width: fit-content; }
 
 .site-footer .footer-logo {
-  width: min(110%, 500px); /* 120% of pill, but not ridiculously large */
+  width: min(100%, 300px); /* 120% of pill, but not ridiculously large */
   max-width: 110%;
   height: auto;
   display: block;

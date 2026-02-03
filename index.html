@@ -16,6 +16,34 @@
 	<link rel="stylesheet" href="assets/hkqc.css">
 </head>
 <body>
+<!-- Postponement Modal -->
+<div id="postpone-modal" class="modal-overlay" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+  <div class="modal-box">
+    <header class="modal-header">
+      <h3 id="modal-title">重要公告</h3>
+      <h3 id="modal-title-en">Important Notice</h3>
+      <button class="modal-close" aria-label="Close notice">&times;</button>
+    </header>
+
+    <div class="modal-body">
+      <p>
+        原定於<span class="alnum">2026</span>年<span class="alnum">3</span>月<span class="alnum">8</span>日舉行的香港魁地奇盃將會延期舉行。<br>
+        新日期及安排確認後，將於本頁及社交媒體公佈。感謝支持！
+      </p>
+      <p>
+        The Hong Kong Quadball Cup originally scheduled for 8 March 2026 has been postponed.<br>
+        New date and details will be announced here and on social channels once confirmed. Thank you for your support!
+      </p>
+    </div>
+
+    <footer class="modal-footer">
+      <button class="btn btn-primary modal-dismiss">
+        <span>收到，繼續瀏覽網頁</span><br>
+        <span>Got it, continue to site</span>
+      </button>
+    </footer>
+  </div>
+</div>
 
 <!-- Navbar -->
   <nav class="navbar">
@@ -101,6 +129,23 @@
       >
     </div>
   </section>
+
+	<section id="notice" class="section notice-banner">
+		<div class="container">
+			<div class="notice-box">
+				<p class="zh">
+					<strong>重要公告：</strong>
+					原定於<span class="alnum">2026</span>年<span class="alnum">3</span>月<span class="alnum">8</span>日舉行的香港魁地奇盃將會延期舉行。新日期及安排確認後，將於本頁及社交媒體公佈。
+				</p>
+				<p class="en">
+					<strong>Important update:</strong>
+					The Hong Kong Quadball Cup originally scheduled for 8 March 2026
+					has been postponed. The new date and details will be announced
+					here and on our social channels once confirmed.
+				</p>
+			</div>
+		</div>
+	</section>
 
 <!-- About Event -->
 	  <section id="about-event" class="section">
@@ -554,8 +599,7 @@
         el.innerHTML = wrapAlphanumeric(el.textContent);
       });
     });
-  </script>
-	<script>
+
 	  // Simple carousel for highlights
 	  document.addEventListener('DOMContentLoaded', function () {
 		const carousel = document.querySelector('.carousel');
@@ -586,7 +630,23 @@
 		  dot.addEventListener('click', () => updateCarousel(i))
 		);
 	  });
-	</script>
+	
+	// Postponement modal
+	document.addEventListener('DOMContentLoaded', function() {
+	  const modal = document.getElementById('postpone-modal');
+	  const dismissTriggers = modal.querySelectorAll('.modal-dismiss, .modal-close');
+	  const overlay = document.querySelector('.modal-overlay');
 
+	  dismissTriggers.forEach(btn => {
+		btn.addEventListener('click', () => {
+		  modal.classList.add('dismissed');
+		  // No localStorage = shows every reload
+		});
+	  });
+
+	  // No persistence check = always shows
+	});
+
+	</script>
 </body>
 </html>
